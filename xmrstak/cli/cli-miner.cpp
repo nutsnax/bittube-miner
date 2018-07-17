@@ -990,9 +990,9 @@ void parse_runtime_input(bool* running) {
 				break;
 			case 'p':
 				executor::inst()->isPause = true;
-				if (httpd::miner_config != nullptr) {
-					httpd::miner_config->isMining = false;
-				}
+				//if (httpd::miner_config != nullptr) {
+				//	httpd::miner_config->isMining = false;
+				//}
 				break;
 #ifndef CONF_NO_HTTPD
 			case 'i':
@@ -1008,9 +1008,9 @@ void parse_runtime_input(bool* running) {
 		{
 			case 'p':
 				executor::inst()->isPause = false;
-				if (httpd::miner_config != nullptr) {
-					httpd::miner_config->isMining = true;
-				}
+				//if (httpd::miner_config != nullptr) {
+				//	httpd::miner_config->isMining = true;
+				//}
 				break;
 #ifndef CONF_NO_HTTPD
 			case 'i':
@@ -1056,17 +1056,17 @@ void delete_miner() {
 		std::cout << "Error deleting current miner execution" << std::endl;
 	}
 }
-
+/*
 bool check_expert_mode(bool* expertmode, bool* firstTime, bool* startRunning, bool askExpert) {
 	bool errorResult = false;
 	*expertmode = false;
 	*firstTime = true;
 
-	std::ifstream firstConfig("expert.json");
-	std::regex expertParamPattern(".*\(expert_mode\)\.*[:]\.*(true|false)\.*");
-	std::regex firstRunParamPattern(".*\(first_run\)\.*[:]\.*(true|false)\.*");
-	std::regex startRunningParamPattern(".*\(start_running\)\.*[:]\.*(true|false)\.*");
-	std::smatch base_match;
+	//std::ifstream firstConfig("expert.json");
+	//std::regex expertParamPattern(".*\(expert_mode\)\.*[:]\.*(true|false)\.*");
+	//std::regex firstRunParamPattern(".*\(first_run\)\.*[:]\.*(true|false)\.*");
+	//std::regex startRunningParamPattern(".*\(start_running\)\.*[:]\.*(true|false)\.*");
+	//std::smatch base_match;
 
 
 	if (!firstConfig.fail()) {
@@ -1103,7 +1103,7 @@ bool check_expert_mode(bool* expertmode, bool* firstTime, bool* startRunning, bo
 
 		firstConfig.close();
 	}
-
+*/
 
 #ifndef CONF_NO_HTTPD
 
@@ -1208,6 +1208,7 @@ void change_firstRun(bool firstRun) {
 	}
 }
 
+/*
 void change_startRunning(bool startRunning) {
 	std::ifstream firstConfig("expert.json");
 	std::regex startRunningParamPattern(".*\(start_running\)\.*[:]\.*(true|false)\.*");
@@ -1240,7 +1241,7 @@ void change_startRunning(bool startRunning) {
 		//TODO: error handling
 	}
 }
-
+*/
 int start_miner_execution() {
 	int result = 0;
 	using namespace xmrstak;
