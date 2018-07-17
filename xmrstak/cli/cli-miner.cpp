@@ -190,7 +190,7 @@ inline void prompt_once(bool& prompted)
 		prompted = true;
 	}
 }
-
+/*
 void do_guided_pool_config(bool expertModeIn)
 {
 	using namespace xmrstak;
@@ -772,7 +772,7 @@ int program_config(bool expertMode) {
 	}
 
 #ifdef _WIN32
-	/* For Windows 7 and 8 request elevation at all times unless we are using slow memory */
+	// For Windows 7 and 8 request elevation at all times unless we are using slow memory 
 	if (jconf::inst()->GetSlowMemSetting() != jconf::slow_mem_cfg::always_use && !IsWindows10OrNewer())
 	{
 		printer::inst()->print_msg(L0, "Elevating due to Windows 7 or 8. You need Windows 10 to use fast memory without UAC elevation.");
@@ -825,7 +825,7 @@ void show_credits(bool expertMode) {
 	printer::inst()->print_str("Based on OpenCL mining code by wolf9466.\n");
 #endif
 }
-
+*/
 void show_manage_info() {
 	printer::inst()->print_str("-------------------------------------------------------------------\n");
 	printer::inst()->print_str("Miner execution in pause\n");
@@ -1103,7 +1103,7 @@ bool check_expert_mode(bool* expertmode, bool* firstTime, bool* startRunning, bo
 
 		firstConfig.close();
 	}
-*/
+
 
 #ifndef CONF_NO_HTTPD
 
@@ -1208,7 +1208,7 @@ void change_firstRun(bool firstRun) {
 	}
 }
 
-/*
+
 void change_startRunning(bool startRunning) {
 	std::ifstream firstConfig("expert.json");
 	std::regex startRunningParamPattern(".*\(start_running\)\.*[:]\.*(true|false)\.*");
@@ -1256,7 +1256,7 @@ int start_miner_execution() {
 	change_startRunning(true);
 	return result;
 }
-
+/*
 void restart_miner(bool expertMode, bool deleteMiner) {
 #ifndef CONF_NO_HTTPD
 	httpd::cls();
@@ -1432,7 +1432,7 @@ int main(int argc, char *argv[]) {
 
 	return 0;
 }
-
+*/
 int do_benchmark(int block_version, int wait_sec, int work_sec)
 {
 	using namespace std::chrono;
