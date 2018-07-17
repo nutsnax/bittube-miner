@@ -87,8 +87,8 @@ constexpr size_t iConfigCnt = (sizeof(oConfigValues)/sizeof(oConfigValues[0]));
 
 xmrstak::coin_selection coins[] = {
 	// name, userpool, devpool, default_pool_suggestion
-	/*
-	{ "aeon7",               {cryptonight_aeon, cryptonight_lite, 7u},     {cryptonight_aeon, cryptonight_lite, 7u},     "mine.aeon-pool.com:5555" },
+	
+	{ "aeon7",               {cryptonight_aeon, cryptonight_lite, 7u},     {cryptonight_aeon, cryptonight_lite, 7u},     nullptr },
 	{ "bbscoin",             {cryptonight_monero, cryptonight, 3u},        {cryptonight_monero, cryptonight_monero, 0u}, nullptr },
 	{ "croat",               {cryptonight_monero, cryptonight, 255u},      {cryptonight_monero, cryptonight_monero, 0u}, nullptr },
 	{ "cryptonight",         {cryptonight_monero, cryptonight, 255u},      {cryptonight_monero, cryptonight_monero, 0u}, nullptr },
@@ -108,12 +108,11 @@ xmrstak::coin_selection coins[] = {
 	{ "ipbc",                {cryptonight_aeon, cryptonight_bittube, 255u},   {cryptonight_aeon, cryptonight_aeon, 255u},     nullptr },
 	{ "masari",              {cryptonight_masari, cryptonight_monero, 7u},   {cryptonight_monero, cryptonight_monero, 0u},nullptr },
 	{ "karbo",               {cryptonight_monero, cryptonight, 255u},      {cryptonight_monero, cryptonight_monero, 0u}, nullptr },
-	{ "monero7",             {cryptonight_monero, cryptonight_monero, 0u}, {cryptonight_monero, cryptonight_monero, 0u}, "pool.usxmrpool.com:3333" },
+	{ "monero7",             {cryptonight_monero, cryptonight_monero, 0u}, {cryptonight_monero, cryptonight_monero, 0u}, nullptr },
 	{ "stellite",            {cryptonight_stellite, cryptonight_monero, 4u}, {cryptonight_monero, cryptonight_monero, 0u}, nullptr },
 	{ "sumokoin",            {cryptonight_heavy, cryptonight_heavy, 0u},   {cryptonight_heavy, cryptonight_heavy, 0u},   nullptr },
 	{ "turtlecoin",          {cryptonight_lite, cryptonight_aeon, 255u},   {cryptonight_aeon, cryptonight_lite, 7u},     nullptr }
-	*/
-	{"bittube",                 {cryptonight_bittube2, cryptonight_bittube, 4u},          {cryptonight_bittube2, cryptonight_bittube, 4u},   "mining.bit.tube:13333"},
+	{"bittube",                 {cryptonight_bittube2, cryptonight_bittube, 4u},          {cryptonight_bittube2, cryptonight_bittube, 4u},   nullptr},
 };
 
 constexpr size_t coin_algo_size = (sizeof(coins)/sizeof(coins[0]));
