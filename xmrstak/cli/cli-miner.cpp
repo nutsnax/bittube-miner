@@ -1252,8 +1252,8 @@ int start_miner_execution() {
 	}
 
 	executor::inst()->ex_start(jconf::inst()->DaemonMode());
-	change_firstRun(false);
-	change_startRunning(true);
+	//change_firstRun(false);
+	//change_startRunning(true);
 	return result;
 }
 /*
