@@ -151,9 +151,9 @@ private:
 			}
 			if (intensity != 0)
 			{
-				if ( ctx.name.compare("Baffin") == 0 && ctx.availableMem < 2048 )
+				if ( ctx.name.compare("Baffin") == 0 && availableMem < 2048 )
 				{
-						intensity = intensity / 2
+						intensity = intensity / 2;
 				}
 				//stak most always under-reports mem numbers even on dedicated gpu's on linux systems so adding 10% to compensate
 				intensity = intensity * 1.1
@@ -165,7 +165,7 @@ private:
 					"    \"affine_to_cpu\" : false, \"strided_index\" : " + (ctx.isNVIDIA ? "0" : "1") + ", \"mem_chunk\" : 2,\n"
 					"    \"comp_mode\" : true\n" +
 					"  },\n";
-				if(::jconf::inst()->GetCurrentCoinSelection().GetDescription(1).GetMiningAlgo() == cryptonight_lite || if(::jconf::inst()->GetCurrentCoinSelection().GetDescription(1).GetMiningAlgo() == cryptonight_aeon))
+				if(::jconf::inst()->GetCurrentCoinSelection().GetDescription(1).GetMiningAlgo() == cryptonight_lite || ::jconf::inst()->GetCurrentCoinSelection().GetDescription(1).GetMiningAlgo() == cryptonight_aeon)
 					conf += std::string("  { \"index\" : ") + std::to_string(ctx.deviceIdx) + ",\n" +
 					"    \"intensity\" : " + std::to_string(intensity) + ", \"worksize\" : " + std::to_string(8) + ",\n" +
 					"    \"affine_to_cpu\" : false, \"strided_index\" : " + (ctx.isNVIDIA ? "0" : "1") + ", \"mem_chunk\" : 2,\n"
