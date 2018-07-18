@@ -1,4 +1,4 @@
- /*
+/*
   * This program is free software: you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
   * the Free Software Foundation, either version 3 of the License, or
@@ -190,7 +190,7 @@ inline void prompt_once(bool& prompted)
 		prompted = true;
 	}
 }
-/*
+
 void do_guided_pool_config(bool expertModeIn)
 {
 	using namespace xmrstak;
@@ -772,7 +772,7 @@ int program_config(bool expertMode) {
 	}
 
 #ifdef _WIN32
-	// For Windows 7 and 8 request elevation at all times unless we are using slow memory 
+	/* For Windows 7 and 8 request elevation at all times unless we are using slow memory */
 	if (jconf::inst()->GetSlowMemSetting() != jconf::slow_mem_cfg::always_use && !IsWindows10OrNewer())
 	{
 		printer::inst()->print_msg(L0, "Elevating due to Windows 7 or 8. You need Windows 10 to use fast memory without UAC elevation.");
@@ -825,7 +825,7 @@ void show_credits(bool expertMode) {
 	printer::inst()->print_str("Based on OpenCL mining code by wolf9466.\n");
 #endif
 }
-*/
+
 void show_manage_info() {
 	printer::inst()->print_str("-------------------------------------------------------------------\n");
 	printer::inst()->print_str("Miner execution in pause\n");
@@ -990,9 +990,9 @@ void parse_runtime_input(bool* running) {
 				break;
 			case 'p':
 				executor::inst()->isPause = true;
-				//if (httpd::miner_config != nullptr) {
-				//	httpd::miner_config->isMining = false;
-				//}
+				if (httpd::miner_config != nullptr) {
+					httpd::miner_config->isMining = false;
+				}
 				break;
 #ifndef CONF_NO_HTTPD
 			case 'i':
@@ -1008,9 +1008,9 @@ void parse_runtime_input(bool* running) {
 		{
 			case 'p':
 				executor::inst()->isPause = false;
-				//if (httpd::miner_config != nullptr) {
-				//	httpd::miner_config->isMining = true;
-				//}
+				if (httpd::miner_config != nullptr) {
+					httpd::miner_config->isMining = true;
+				}
 				break;
 #ifndef CONF_NO_HTTPD
 			case 'i':
@@ -1056,17 +1056,17 @@ void delete_miner() {
 		std::cout << "Error deleting current miner execution" << std::endl;
 	}
 }
-/*
+
 bool check_expert_mode(bool* expertmode, bool* firstTime, bool* startRunning, bool askExpert) {
 	bool errorResult = false;
 	*expertmode = false;
 	*firstTime = true;
 
-	//std::ifstream firstConfig("expert.json");
-	//std::regex expertParamPattern(".*\(expert_mode\)\.*[:]\.*(true|false)\.*");
-	//std::regex firstRunParamPattern(".*\(first_run\)\.*[:]\.*(true|false)\.*");
-	//std::regex startRunningParamPattern(".*\(start_running\)\.*[:]\.*(true|false)\.*");
-	//std::smatch base_match;
+	std::ifstream firstConfig("expert.json");
+	std::regex expertParamPattern("expert_mode : \(true|false\).*");
+	std::regex firstRunParamPattern(".*\(first_run\)\.*[:]\.*(true|false)\.*");
+	std::regex startRunningParamPattern(".*\(start_running\)\.*[:]\.*(true|false)\.*");
+	std::smatch base_match;
 
 
 	if (!firstConfig.fail()) {
@@ -1208,7 +1208,6 @@ void change_firstRun(bool firstRun) {
 	}
 }
 
-
 void change_startRunning(bool startRunning) {
 	std::ifstream firstConfig("expert.json");
 	std::regex startRunningParamPattern(".*\(start_running\)\.*[:]\.*(true|false)\.*");
@@ -1241,7 +1240,7 @@ void change_startRunning(bool startRunning) {
 		//TODO: error handling
 	}
 }
-*/
+
 int start_miner_execution() {
 	int result = 0;
 	using namespace xmrstak;
@@ -1252,11 +1251,11 @@ int start_miner_execution() {
 	}
 
 	executor::inst()->ex_start(jconf::inst()->DaemonMode());
-	//change_firstRun(false);
-	//change_startRunning(true);
+	change_firstRun(false);
+	change_startRunning(true);
 	return result;
 }
-/*
+
 void restart_miner(bool expertMode, bool deleteMiner) {
 #ifndef CONF_NO_HTTPD
 	httpd::cls();
@@ -1432,7 +1431,7 @@ int main(int argc, char *argv[]) {
 
 	return 0;
 }
-*/
+
 int do_benchmark(int block_version, int wait_sec, int work_sec)
 {
 	using namespace std::chrono;
