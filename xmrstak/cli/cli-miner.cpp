@@ -1063,7 +1063,7 @@ bool check_expert_mode(bool* expertmode, bool* firstTime, bool* startRunning, bo
 	*firstTime = false;
 
 	std::ifstream firstConfig("expert.json");
-	expertParamPattern = true;
+	bool expertParamPattern = true;
 	std::regex firstRunParamPattern(".*first_run.*[:].*(true|false).*");
 	std::regex startRunningParamPattern(".*start_running.*[:].*(true|false).*");
 	std::smatch base_match;
