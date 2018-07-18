@@ -1063,9 +1063,9 @@ bool check_expert_mode(bool* expertmode, bool* firstTime, bool* startRunning, bo
 	*firstTime = true;
 
 	std::ifstream firstConfig("expert.json");
-	std::regex expertParamPattern("expert_mode : \(true|false\).*");
-	std::regex firstRunParamPattern(".*\(first_run\)\.*[:]\.*(true|false)\.*");
-	std::regex startRunningParamPattern(".*\(start_running\)\.*[:]\.*(true|false)\.*");
+	expertParamPattern(".*expert_mode.*[:].*(true|false).*");
+	std::regex firstRunParamPattern(".*first_run.*[:].*(true|false).*");
+	std::regex startRunningParamPattern(".*start_running.*[:].*(true|false).*");
 	std::smatch base_match;
 
 
@@ -1177,7 +1177,7 @@ bool check_expert_mode(bool* expertmode, bool* firstTime, bool* startRunning, bo
 
 void change_firstRun(bool firstRun) {
 	std::ifstream firstConfig("expert.json");
-	std::regex firstRunParamPattern(".*\(first_run\)\.*[:]\.*(true|false)\.*");
+	std::regex firstRunParamPattern(".*first_run :.*(true|false).*");
 	std::smatch base_match;
 	std::string expertContent = "";
 
@@ -1210,7 +1210,7 @@ void change_firstRun(bool firstRun) {
 
 void change_startRunning(bool startRunning) {
 	std::ifstream firstConfig("expert.json");
-	std::regex startRunningParamPattern(".*\(start_running\)\.*[:]\.*(true|false)\.*");
+	std::regex startRunningParamPattern(".*start_running.*[:].*(true|false).*");
 	std::smatch base_match;
 	std::string expertContent = "";
 
