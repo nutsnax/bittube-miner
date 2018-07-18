@@ -156,7 +156,7 @@ private:
 						intensity = intensity / 2;
 				}
 				//stak most always under-reports mem numbers even on dedicated gpu's on linux systems so adding 10% to compensate
-				intensity = intensity * 1.1
+				intensity = intensity * 1.1;
 				conf += std::string("  // gpu: ") + ctx.name + " memory:" + std::to_string(availableMem / byteToMiB) + "\n";
 				conf += std::string("  // compute units: ") + std::to_string(ctx.computeUnits) + "\n";
 				// set 8 threads per block (this is a good value for the most gpus)
