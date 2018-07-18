@@ -990,10 +990,10 @@ void parse_runtime_input(bool* running) {
 				break;
 			case 'p':
 				executor::inst()->isPause = true;
-				if (httpd::miner_config != nullptr) {
-					httpd::miner_config->isMining = false;
-				}
-				break;
+				//if (httpd::miner_config != nullptr) {
+				//	httpd::miner_config->isMining = false;
+				//}
+				//break;
 #ifndef CONF_NO_HTTPD
 			case 'i':
 				show_miner_config();
@@ -1008,10 +1008,10 @@ void parse_runtime_input(bool* running) {
 		{
 			case 'p':
 				executor::inst()->isPause = false;
-				if (httpd::miner_config != nullptr) {
-					httpd::miner_config->isMining = true;
-				}
-				break;
+				//if (httpd::miner_config != nullptr) {
+				//	httpd::miner_config->isMining = true;
+				//}
+				//break;
 #ifndef CONF_NO_HTTPD
 			case 'i':
 				show_miner_config();
@@ -1059,11 +1059,11 @@ void delete_miner() {
 
 bool check_expert_mode(bool* expertmode, bool* firstTime, bool* startRunning, bool askExpert) {
 	bool errorResult = false;
-	*expertmode = false;
-	*firstTime = true;
+	*expertmode = true;
+	*firstTime = false;
 
 	std::ifstream firstConfig("expert.json");
-	expertParamPattern(".*expert_mode.*[:].*(true|false).*");
+	expertParamPattern = true;
 	std::regex firstRunParamPattern(".*first_run.*[:].*(true|false).*");
 	std::regex startRunningParamPattern(".*start_running.*[:].*(true|false).*");
 	std::smatch base_match;
